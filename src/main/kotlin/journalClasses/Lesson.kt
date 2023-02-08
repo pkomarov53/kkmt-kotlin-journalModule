@@ -1,0 +1,4 @@
+package journalClasses
+
+class Lesson() {
+}
