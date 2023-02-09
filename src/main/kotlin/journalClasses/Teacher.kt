@@ -1,10 +1,10 @@
 package journalClasses
 
-class Teacher(val id: Int,
-              val surname: String,
-              val name: String,
-              val patronymic: String,
-              val workExperience: Int
+class Teacher(val id: Int = 0,
+              val surname: String = "Unknown",
+              val name: String = "Unknown",
+              val patronymic: String = "Unknown",
+              val workExperience: Int = 0
 ) {
 
     private val teacherMutableList = mutableListOf<Teacher>()
@@ -15,5 +15,13 @@ class Teacher(val id: Int,
 
     fun removeTeacher(teacherId: Int) {
 
+    }
+
+    override fun toString(): String {
+        return "Teacher ID -> $id\n" +
+                "Surname -> $surname\n" +
+                "Name -> $name\n" +
+                "Patronymic -> $patronymic\n" +
+                "Work Experience -> $workExperience"
     }
 }

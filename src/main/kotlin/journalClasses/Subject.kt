@@ -1,11 +1,11 @@
 package journalClasses
 
-class Subject(val id: Int,
-              val subjectName: String,
-              val hoursCount: Int
+class Subject(val id: Int = 0,
+              val subjectName: String = "Unknown",
+              val hoursCount: Int = 0
 ) {
 
-    private val subjectMutableList = mutableListOf<Subject>()
+    val subjectMutableList = mutableListOf<Subject>()
 
     fun addSubject(subjectInstance: Subject) {
         subjectMutableList.add(subjectInstance)
@@ -13,5 +13,11 @@ class Subject(val id: Int,
 
     fun removeSubject(subjectId: Int) {
 
+    }
+
+    override fun toString(): String {
+        return "Subject ID -> $id\n" +
+                "Subject -> $subjectName\n" +
+                "Subject hours -> $hoursCount"
     }
 }
