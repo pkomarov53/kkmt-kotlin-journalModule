@@ -2,6 +2,10 @@ import journalClasses.*
 import kotlin.random.Random
 
 fun main() {
+    val groupManipulator = Group()
+        val subjectManipulator = Subject()
+            val teacherManipulator = Teacher()
+
     println("Program menu:\n" +
             "\t1. Add/delete group\n" +
             "\t2. Add/delete subject\n" +
@@ -13,9 +17,8 @@ fun main() {
         print(message = "\nUser input -> ")
         when(readln().lowercase()) {
             "1" -> {
-                val groupManipulator = Group()
                 println(message = "Please choose the action: add or del")
-                when(readln()) {
+                when(readln().lowercase()) {
                     "add" -> {
                         groupManipulator.addGroup(
                             Group(
@@ -25,8 +28,6 @@ fun main() {
                                 readln().toDouble()
                             )
                         )
-                        println(message = "object:\n" +
-                                "${groupManipulator.groupMutableList.last()}")
                     }
                     "del" -> {
                         print("Please enter ID of the group -> ")
@@ -40,9 +41,9 @@ fun main() {
             }
 
             "2" -> {
-                val subjectManipulator = Subject()
+
                 println(message = "Please choose the action: add or del")
-                when(readln()) {
+                when(readln().lowercase()) {
                     "add" -> {
                         subjectManipulator.addSubject(
                             Subject(
@@ -51,8 +52,6 @@ fun main() {
                                 readln().toInt()
                             )
                         )
-                        println(message = "object:\n" +
-                                "${subjectManipulator.subjectMutableList.last()}")
                     }
                     "del" -> {
                         subjectManipulator.removeSubject(readln().toInt())
@@ -65,9 +64,8 @@ fun main() {
             }
 
             "3" -> {
-                val teacherManipulator = Teacher()
                 println(message = "Please choose the action: add or del")
-                when(readln()) {
+                when(readln().lowercase()) {
                     "add" -> {
                         teacherManipulator.addTeacher(
                             Teacher(
@@ -91,7 +89,7 @@ fun main() {
 
             "4" -> {
                 println(message = "Please choose the action: add or del")
-                when(readln()) {
+                when(readln().lowercase()) {
                     "add" -> {
                     }
                     "del" -> {

@@ -6,23 +6,27 @@ class Group(private val id: Int = 0,
             private val marksAvg: Double = 0.0
 ) {
 
-    val groupMutableList = mutableListOf<Group>()
+    private val groupMutableList = mutableListOf<Group>()
 
-    fun addGroup(groupInstance : Group) {
+    fun addGroup(groupInstance: Group) {
         groupMutableList.add(groupInstance)
     }
 
     fun removeGroup(groupId: Int) {
-        print(1)
         groupMutableList.forEach {
             if (it.id == groupId) {
                 println("Found the id!")
-                groupMutableList.remove(it)
-            }
-            else {
-                println("Incorrect ID")
+                this.groupMutableList.remove(it)
+            } else {
+                println("Incorrect id")
                 return
             }
+        }
+    }
+
+    fun get() {
+        groupMutableList.forEach {
+            println("$it")
         }
     }
 
@@ -30,6 +34,6 @@ class Group(private val id: Int = 0,
         return "Group id -> $id\n" +
                 "Name of the group -> $groupName\n" +
                 "Student count -> $studCount\n" +
-                "GPA -> $marksAvg"
+                "GPA -> $marksAvg\n"
     }
 }
