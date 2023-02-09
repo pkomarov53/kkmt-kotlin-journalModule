@@ -2,9 +2,12 @@ import journalClasses.*
 import kotlin.random.Random
 
 fun main() {
+
+    // Манипуляторы для работы с классами
     val groupManipulator = Group()
-        val subjectManipulator = Subject()
-            val teacherManipulator = Teacher()
+    val subjectManipulator = Subject()
+    val teacherManipulator = Teacher()
+    val lessonManipulator = Lesson()
 
     println("Program menu:\n" +
             "\t1. Add/delete group\n" +
@@ -54,6 +57,7 @@ fun main() {
                         )
                     }
                     "del" -> {
+                        print("Please enter ID of the group -> ")
                         subjectManipulator.removeSubject(readln().toInt())
                     }
                     else -> {
@@ -78,6 +82,7 @@ fun main() {
                         )
                     }
                     "del" -> {
+                        print("Please enter ID of the group -> ")
                         teacherManipulator.removeTeacher(readln().toInt())
                     }
                     else -> {
@@ -93,6 +98,8 @@ fun main() {
                     "add" -> {
                     }
                     "del" -> {
+                        print("Please enter ID of the lesson -> ")
+                        lessonManipulator.removeLesson(readln().toInt())
                     }
                     else -> {
                         println("Incorrect input")
