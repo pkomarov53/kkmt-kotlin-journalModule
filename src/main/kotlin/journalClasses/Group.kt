@@ -1,5 +1,7 @@
 package journalClasses
 
+import kotlin.random.Random
+
 class Group(
     val id: Int = 0,
     private val groupName: String = "Unknown",

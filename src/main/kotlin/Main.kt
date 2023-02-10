@@ -1,5 +1,4 @@
 import journalClasses.*
-import java.time.LocalTime
 import kotlin.random.Random
 
 fun main() {
@@ -7,6 +6,10 @@ fun main() {
     val subjectManipulator = Subject()
     val teacherManipulator = Teacher()
     val lessonManipulator = Lesson()
+
+    groupManipulator.addGroup(Group(1, "p1-20", 25, 4.56))
+    subjectManipulator.addSubject(Subject(2, "ICT", 128))
+    teacherManipulator.addTeacher(Teacher(3, "Jorjian", "Alexo", "Peterson", 25))
 
     println("Program menu:\n" +
             "\t1. Add/delete group\n" +
@@ -96,16 +99,25 @@ fun main() {
                 when(readln().lowercase()) {
                     "add" -> {
                         val gId = readln().toInt()
-                        groupManipulator.groupMutableList.forEach {
-                            flag = it.id == gId
+                        for (i in groupManipulator.groupMutableList) {
+                            if (i.id == gId) {
+                                flag = true
+                                break
+                            }
                         }
                         val tId = readln().toInt()
-                        groupManipulator.groupMutableList.forEach {
-                            flag = it.id == tId
+                        for (i in teacherManipulator.teacherMutableList) {
+                            if (i.id == tId) {
+                                flag = true
+                                break
+                            }
                         }
                         val sId = readln().toInt()
-                        groupManipulator.groupMutableList.forEach {
-                            flag = it.id == sId
+                        for (i in subjectManipulator.subjectMutableList) {
+                            if (i.id == sId) {
+                                flag = true
+                                break
+                            }
                         }
                         if (flag) {
                             lessonManipulator.addLesson(

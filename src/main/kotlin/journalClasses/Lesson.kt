@@ -18,8 +18,9 @@ class Lesson(private val id: Int = 0,
 
     fun addLesson(lessonInstance: Lesson) {
         lessonMutableList.add(lessonInstance)
-        val fileWriter = File("$id.txt")
-        fileWriter.appendText(lessonInstance.toString())
+        val fileWriter = File("${lessonInstance.id}.txt")
+        fileWriter.writeText(lessonInstance.toString())
+
     }
 
     fun removeLesson(lessonId: Int) {

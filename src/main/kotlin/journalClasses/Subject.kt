@@ -1,11 +1,13 @@
 package journalClasses
 
-class Subject(private val id: Int = 0,
+import kotlin.random.Random
+
+class Subject(val id: Int = 0,
               private val subjectName: String = "Unknown",
               private val hoursCount: Int = 0
 ) {
 
-    private val subjectMutableList = mutableListOf<Subject>()
+    val subjectMutableList = mutableListOf<Subject>()
 
     fun addSubject(subjectInstance: Subject) {
         subjectMutableList.add(subjectInstance)
@@ -31,6 +33,6 @@ class Subject(private val id: Int = 0,
     override fun toString(): String {
         return "Subject ID -> $id\n" +
                 "Subject -> $subjectName\n" +
-                "Subject hours -> $hoursCount"
+                "Subject hours -> $hoursCount\n"
     }
 }
