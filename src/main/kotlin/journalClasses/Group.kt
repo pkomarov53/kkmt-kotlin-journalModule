@@ -1,12 +1,13 @@
 package journalClasses
 
-class Group(private val id: Int = 0,
-            private val groupName: String = "Unknown",
-            private val studCount: Int = 0,
-            private val marksAvg: Double = 0.0
+class Group(
+    val id: Int = 0,
+    private val groupName: String = "Unknown",
+    private val studCount: Int = 0,
+    private val marksAvg: Double = 0.0
 ) {
 
-    private val groupMutableList = mutableListOf<Group>()
+    val groupMutableList = mutableListOf<Group>()
 
     fun addGroup(groupInstance: Group) {
         groupMutableList.add(groupInstance)

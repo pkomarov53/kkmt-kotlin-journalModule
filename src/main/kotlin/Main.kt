@@ -1,9 +1,8 @@
 import journalClasses.*
+import java.time.LocalTime
 import kotlin.random.Random
 
 fun main() {
-
-    // Манипуляторы для работы с классами
     val groupManipulator = Group()
     val subjectManipulator = Subject()
     val teacherManipulator = Teacher()
@@ -16,6 +15,7 @@ fun main() {
             "\t4. Add/delete lesson\n" +
             "\t5. Break program")
 
+    var flag = false
     while(true) {
         print(message = "\nUser input -> ")
         when(readln().lowercase()) {
@@ -25,7 +25,7 @@ fun main() {
                     "add" -> {
                         groupManipulator.addGroup(
                             Group(
-                                Random.nextInt(1000, 10000),
+                                Random.nextInt(1000, 2000),
                                 readln(),
                                 readln().toInt(),
                                 readln().toDouble()
@@ -44,13 +44,12 @@ fun main() {
             }
 
             "2" -> {
-
                 println(message = "Please choose the action: add or del")
                 when(readln().lowercase()) {
                     "add" -> {
                         subjectManipulator.addSubject(
                             Subject(
-                                Random.nextInt(1000, 10000),
+                                Random.nextInt(2000, 3000),
                                 readln(),
                                 readln().toInt()
                             )
@@ -73,7 +72,7 @@ fun main() {
                     "add" -> {
                         teacherManipulator.addTeacher(
                             Teacher(
-                                Random.nextInt(1000, 10000),
+                                Random.nextInt(3000, 4000),
                                 readln(),
                                 readln(),
                                 readln(),
@@ -96,6 +95,31 @@ fun main() {
                 println(message = "Please choose the action: add or del")
                 when(readln().lowercase()) {
                     "add" -> {
+                        val gId = readln().toInt()
+                        groupManipulator.groupMutableList.forEach {
+                            flag = it.id == gId
+                        }
+                        val tId = readln().toInt()
+                        groupManipulator.groupMutableList.forEach {
+                            flag = it.id == tId
+                        }
+                        val sId = readln().toInt()
+                        groupManipulator.groupMutableList.forEach {
+                            flag = it.id == sId
+                        }
+                        if (flag) {
+                            lessonManipulator.addLesson(
+                                Lesson(
+                                    Random.nextInt(4000, 5000),
+                                    tId,
+                                    gId,
+                                    sId,
+                                    readln(),
+                                    readln().toInt()
+                                )
+                            )
+                        } else println("There was an error while parsing the id")
+                        lessonManipulator.get()
                     }
                     "del" -> {
                         print("Please enter ID of the lesson -> ")
