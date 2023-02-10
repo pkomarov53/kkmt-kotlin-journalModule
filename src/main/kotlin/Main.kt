@@ -88,7 +88,7 @@ fun main() {
                         teacherManipulator.removeTeacher(readln().toInt())
                     }
                     else -> {
-                        println("Incorrect input")
+                        println("Incorrect input!")
                         continue
                     }
                 }
