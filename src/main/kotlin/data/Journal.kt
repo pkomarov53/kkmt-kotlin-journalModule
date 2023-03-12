@@ -12,10 +12,20 @@ class Journal {
     // добавить группу
     fun addGroup() {
         val id = groupData.size + 1
+
+        print("Введите название группы -> ")
         val name = readln()
+
+        print("Введите кол-во студентов в группе -> ")
         val studentCount = readln().toInt()
+
+        print("Введите средний балл студентов -> ")
         val groupMark = readln().toDouble()
-        groupData.add(Group(id, name, studentCount, groupMark))
+
+        val group = Group(id, name, studentCount, groupMark)
+        println("\n$group\n")
+        groupData.add(group)
+
     }
 
     // удалить группу
@@ -37,8 +47,13 @@ class Journal {
     // добавить предмет
     fun addSubject() {
         val id = subjectData.size + 1
+
+        print("Введите название предмета -> ")
         val name = readln()
+
+        print("Введите кол-во часов предмета -> ")
         val hours = readln().toInt()
+
         subjectData.add(Subject(id, name, hours))
     }
 
@@ -61,8 +76,13 @@ class Journal {
     // добавить учителя
     fun addTeacher() {
         val id = teacherData.size + 1
+
+        print("Введите ФИО преподавателя -> ")
         val fullName = readln().split(" ")
+
+        print("Введите опыт работы преподвателя -> ")
         val exp = readln().toInt()
+
         teacherData.add(Teacher(id, fullName[0], fullName[1], fullName[2], exp))
     }
 
@@ -83,6 +103,7 @@ class Journal {
         val id = lessonData.size + 1
         var idChecker = false
 
+        print("Введите id преподавателя -> ")
         val tId = readln().toInt()
         teacherData.forEach {
             if (it.teacherId == tId) {
@@ -92,6 +113,7 @@ class Journal {
         }
         require(idChecker) { "Преподавателя с таким id не существует"}
 
+        print("Введите id группы -> ")
         val gId = readln().toInt()
         groupData.forEach {
             if (it.groupId == gId) {
@@ -101,6 +123,7 @@ class Journal {
         }
         require(idChecker) { "Группы с таким id не существует"}
 
+        print("Введите id предмета -> ")
         val sId = readln().toInt()
         subjectData.forEach {
             if (it.subjectId == sId) {
@@ -110,8 +133,12 @@ class Journal {
         }
         require(idChecker) { "Предмета с таким id не существует"}
 
+        print("Введите время начала пары -> ")
         val time = readln()
+
+        print("Введите кабинет проведения пары -> ")
         val cabinet = readln().toInt()
+
         lessonData.add(Lesson(id, gId, sId, tId, time, cabinet))
     }
 
